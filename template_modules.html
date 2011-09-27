@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7 ]><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja" dir="ltr" xmlns:og="http://ogp.me/ns#" xmlns:mixi="http://mixi-platform.com/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" class="ie6"><![endif]-->
+<!--[if IE 7 ]><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja" dir="ltr" xmlns:og="http://ogp.me/ns#" xmlns:mixi="http://mixi-platform.com/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" class="ie7"><![endif]-->
+<!--[if IE 8 ]><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja" dir="ltr" xmlns:og="http://ogp.me/ns#" xmlns:mixi="http://mixi-platform.com/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" class="ie8"><![endif]-->
+<!--[if IE 9 ]><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja" dir="ltr" xmlns:og="http://ogp.me/ns#" xmlns:mixi="http://mixi-platform.com/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" class="ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja" dir="ltr" xmlns:og="http://ogp.me/ns#" xmlns:mixi="http://mixi-platform.com/ns#" xmlns:fb="http://www.facebook.com/2008/fbml"><!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="ja" />
+<title>HTML TEMPLATE MODULES</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/favicon.ico" />
+<style type="text/css">
+* {
+	margin:0;
+	padding:0;
+	font-size:100%;
+	border:0px;
+}
+body{
+	font-size:12px;
+	line-height:1.6;
+}
+
+#container {
+	width:960px;
+	margin:20px auto;
+}
+h1 {
+	font-size:2em;
+	margin:0.5em 0;
+	border-bottom:2px solid #CCC;
+}
+h2 {
+	font-size:1.35em;
+	margin:1em 0;
+	padding:0.2em 0.5em;
+	font-weight:bold;
+	color:#336;
+	background:#f0f0f3;
+}
+
+pre {
+	display:block;
+	color:#396;
+}
+pre:before {
+	content:"/*";
+	display:block;
+}
+pre:after {
+	content:"*/";
+	display:block;
+}
+textarea.example {
+	display:block;
+	width:920px;
+	min-height:200px;
+	padding:15px;
+	border:5px solid #CCC;
+}
+hr{
+	margin:100px 0;
+}
+.pending {
+	background:#F00;
+	color:#FFF;
+}
+.pending:before {
+	content:"[要確認]";
+}
+</style>
+</head>
+<body>
+<div id="container">
+<h1>HTML TEMPLATE MODULES</h1>
+<!--
+<h2>Module_Name</h2>
+<pre>
+</pre>
+<textarea class="example">
+</textarea>
+
+
+-->
+
+<h2>Comment</h2>
+<pre>
+・通常のコメント
+・エリア分けのコメント
+・閉じタグのコメント
+</pre>
+<textarea class="example"><!--　　-->
+
+<!-- [[[ GlOBAL NAV -AREA ]]] -->
+<!-- / [[[ GlOBAL NAV -AREA ]]] -->
+
+<div id="hoge">
+<!-- /#hoge --></div>
+
+<div class="foo">
+<!-- /.foo --></div></textarea>
+
+
+<h2>XML宣言</h2>
+<pre>
+<span class="pending">つけるときつけないときの解説プリーズ。</span>
+</pre>
+<textarea class="example"><?xml version="1.0" encoding="utf-8"?></textarea>
+
+
+<h2>Document type</h2>
+<pre>
+・HTML 4.0.1 Transitional
+・HTML　4.0.1 Strict
+・XHTML 1.0 Transitional
+・XHTML 1.0 Strict
+・HTML5
+</pre>
+<textarea class="example"><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<!DOCTYPE html></textarea>
+
+
+<h2>Head内要素</h2>
+<pre>
+</pre>
+<textarea class="example">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+	
+<link rel="apple-touch-icon-precomposed" href="/img/appleTouchIcon.png" />
+<link rel="mixi-check-image" href="http://www.kayac.com/img/social.png" />
+
+<link rel="index" href="/" title="トップページ" />
+<link rel="start" href="/" title="Home" />
+
+<!--[if IE]><link rel="stylesheet" href="/css/common/ie.css" type="text/css" media="screen, print "/><![endif]-->
+<!--[if lte IE 8]><link rel="stylesheet" href="/css/common/lteie8.css" type="text/css" media="screen, print" /><![endif]-->
+<!--[if lte IE 7]><link rel="stylesheet" href="/css/common/lteie7.css" type="text/css" media="screen, print" /><![endif]-->
+<!--[if lte IE 6]><link rel="stylesheet" href="/css/common/ie6.css" type="text/css" media="screen, print" /><![endif]-->
+</textarea>
+
+
+
+<h2>Social Elements</h2>
+<pre>
+</pre>
+<textarea class="example">
+<meta property="og:title" content="*** Title ***" />
+<meta property="og:description" content="*** Description ***" />
+<meta property="og:url" content="http://www.example.com/" />
+<meta property="og:image" content="http://www.example.com/img/social.png" />
+<meta property="og:site_name" content="*** Site name ***" />
+<meta property="fb:page_id" content="*** 0000000 ***" />
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+</textarea>
+
+
+
+<h2>Media Query</h2>
+<pre>
+</pre>
+<textarea class="example">
+<link rel="stylesheet" href="/css/common/iPad.css" type="text/css" media="only screen and (min-device-width : 768px) and (max-device-width : 1024px)" />
+<link rel="stylesheet" href="/css/common/smartPhone.css" type="text/css" media="only screen and (max-device-width:480px)" />
+</textarea>
+
+
+
+<h2>Web Font</h2>
+<pre>
+</pre>
+<textarea class="example">
+<link href="http://fonts.googleapis.com/css?family=Molengo&text=VISONCMPANYSERELTWORKMU" rel="stylesheet" type="text/css" />
+</textarea>
+
+
+
+<h2>IE6 Alert</h2>
+<pre>
+</pre>
+<textarea class="example">
+<!--[if lte IE 6]>
+<div id="forOldBrowser" class="group">
+<h2>Oh no!</h2>
+<p class="outline">お使いのブラウザは現在サポートされていません。<br />
+最新のブラウザにアップグレードしてください。</p>
+<ul class="browserList group">
+<li><a href="http://windows.microsoft.com/ja-JP/internet-explorer/downloads/ie" title="IE最新版のダウンロードページ" class="external"><img src="/img/common/pic/ieIcon.png" alt="IE9のアイコン" width="61" height="61" /></a></li>
+<li><a href="http://www.apple.com/jp/safari/" title="Safari最新版のダウンロードページ" class="external"><img src="/img/common/pic/safariIcon.png" alt="Safariのアイコン" width="61" height="61" /></a></li>
+<li><a href="http://www.google.co.jp/chrome/intl/ja/landing_ch.html" title="Google Chrome 最新版のダウンロードページ" class="external"><img src="/img/common/pic/chromeIcon.png" alt="Google Chrome のアイコン" width="61" height="61" /></a></li>
+<li><a href="http://mozilla.jp/firefox/" title="Firefoxのダウンロードページ" class="external"><img src="/img/common/pic/firefoxIcon.png" alt="Firefoxのアイコン" width="61" height="61" /></a></li>
+</ul>
+<p class="attention">もしくは<br />
+<em>スマートフォン(iPhone,Android)</em>でご覧ください！</p>
+<p class="closeBtn">close</p>
+</div>
+<![endif]-->
+</textarea>
+
+
+<h2>Global Navi</h2>
+<pre>
+</pre>
+<textarea class="example">
+<!-- [[[ GlOBAL NAV -AREA ]]] -->
+<ul>
+<li id="" class="globalNavGroup">
+	<p class="label"><a href="/aaaa" title="aaaa">aaaa</a></p>
+	<ul>
+	<li><a href="/aaaa" title="aaaa">aaaa</a></li>
+	<li><a href="/aaaa/bbbb" title="bbbb">bbbb</a></li>
+	<li><a href="/aaaa/cccc" title="cccc">cccc</a></li>
+	<li><a href="/aaaa/dddd" title="dddd">dddd</a></li>
+	</ul>
+</li>
+</ul>
+<!-- / [[[ GlOBAL NAV -AREA ]]] -->
+</textarea>
+
+
+<h2>Header Area</h2>
+<pre>
+</pre>
+<textarea class="example">
+
+<!-- [[[ HEADER-AREA ]]] -->
+<header>
+<h1><a href="/" rel="index" title="TOPページへ">*** SITE TITLE ***</a></h1>
+<ul class="navSkip hidden">
+<li><a href="#content">Go to content</a></li>
+<li><a href="#globalNav">Go to menu</a></li>
+</ul>
+</header>
+<!-- / [[[ HEADER-AREA ]]] -->
+</textarea>
+
+
+<h2>Social Functions</h2>
+<pre>
+</pre>
+<textarea class="example">
+<!-- [[[ SOCIAL LINK -AREA ]]] -->
+<ul>
+<li class="facebook"><fb:like href="http://www.kayac.com/" layout="button_count" show_faces="false" width="110"></fb:like></li>
+<li class="twitter"><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-lang="ja">Tweet</a></li>
+<li class="mixi" data-service_key="471bafafe405a629202f3d71a5b72d7cf67a60ef"></li>
+<li class="hatebu"><a href="http://b.hatena.ne.jp/entry/http://www.example.com/" class="hatena-bookmark-button" data-hatena-bookmark-title="" data-hatena-bookmark-layout="standard" title="このページをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このページをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a></li>
+<li class="plusone"><g:plusone size="medium"></g:plusone></li>
+</ul>
+<!-- / [[[ SOCIAL LINK -AREA ]]] -->
+</textarea>
+
+
+<h2>Module_Name</h2>
+<pre>
+</pre>
+<textarea class="example">
+</textarea>
+
+
+<h2>Module_Name</h2>
+<pre>
+</pre>
+<textarea class="example">
+</textarea>
+
+</div>
+</body>
+</html>
