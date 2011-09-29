@@ -1,0 +1,117 @@
+@charset "UTF-8";
+/*
+	##### SITE NAME #####
+	
+	[Layout]
+		0. Container
+		1. Header
+		2. Content
+		3. Footer
+
+	[Module]
+		1. Common Module
+		2. ##### SPECIFIC MODULE NAME or SOMETHING #####
+		90. Other
+		99. Clearfix
+*/
+
+body.osMac {
+	font-family: "Hiragino Kaku Gothic ProN","ヒラギノ角ゴ ProN W3",sans-serif;
+}
+
+body.osWin {
+	font-family: "メイリオ", Meiryo, "ＭＳ Ｐゴシック", sans-serif;
+}
+
+/* //////////////////////////////////////////////////
+[Layout] 
+////////////////////////////////////////////////// */
+
+/* --------------------------------------------------
+	0. Container
+-------------------------------------------------- */
+#container {
+	width: 950px;
+	margin: 0 auto;
+}
+
+/* --------------------------------------------------
+	1. Header
+-------------------------------------------------- */
+#header {}
+
+/* --------------------------------------------------
+	2. Content
+-------------------------------------------------- */
+#content {
+}
+#main {
+	float: left;
+	width: 730px;
+}
+#sub {
+	float: right;
+	width: 200px;
+}
+
+/* --------------------------------------------------
+	3. Footer
+-------------------------------------------------- */
+#footer {
+}
+
+/* copyright
+----------------------------------- */
+#footer .copyright {
+	text-align: center;
+}
+
+/* //////////////////////////////////////////////////
+[Module] 
+////////////////////////////////////////////////// */
+
+/* --------------------------------------------------
+	1. Common Module
+-------------------------------------------------- */
+
+/* ##### ここにスタイルを追加してください ##### */
+
+
+/* --------------------------------------------------
+	90. Other
+-------------------------------------------------- */
+.btn { cursor: pointer; }
+
+/* for Voice Browser */
+.hidden {
+	position: absolute;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+}
+
+/* Noscript Message */
+#msgNoscript {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+	width: 100%;
+	padding: 5px 0;
+	border-top: 1px solid #f00;
+	border-bottom: 1px solid #f00;
+	background: #fcc;
+	color: #f00;
+	line-height: 1.2;
+	text-align: center;
+	opacity: 0.7;
+}
+
+/* --------------------------------------------------
+	99. Clearfix
+-------------------------------------------------- */
+.group { *zoom: 1; } /* for ie6/7 */
+.group:after { content: ""; display: block; clear: both; }

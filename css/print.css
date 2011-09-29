@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+/*
+	[Print]
+*/
+
+body {
+	_zoom: 60%; /* for ie6: width = about 950px */
+}
