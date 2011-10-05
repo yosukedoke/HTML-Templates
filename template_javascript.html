@@ -1,0 +1,355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="ja" />
+<title>JAVASCRIPT TEMPLATE MODULES</title>
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<style type="text/css">
+* {
+	margin:0;
+	padding:0;
+	font-size:100%;
+	border:0px;
+}
+body{
+	font-size:12px;
+	line-height:1.6;
+}
+
+#container {
+	width:960px;
+	margin:20px auto;
+}
+h1 {
+	font-size:2em;
+	margin:0.5em 0;
+	border-bottom:2px solid #CCC;
+}
+h2 {
+	font-size:1.35em;
+	margin:1em 0;
+	padding:0.2em 0.5em;
+	font-weight:bold;
+	color:#336;
+	background:#f0f0f3;
+}
+
+pre {
+	display:block;
+	color:#396;
+}
+pre:before {
+	content:"/*";
+	display:block;
+}
+pre:after {
+	content:"*/";
+	display:block;
+}
+textarea.example {
+	display:block;
+	width:920px;
+	min-height:200px;
+	padding:15px;
+	border:5px solid #CCC;
+}
+hr{
+	margin:100px 0;
+}
+.pending {
+	background:#F00;
+	color:#FFF;
+}
+.pending:before {
+	content:"[要確認]";
+}
+</style>
+</head>
+<body>
+<div id="container">
+<h1>JAVASCRIPT TEMPLATE MODULES</h1>
+<!--Template
+<h2>Module_Name</h2>
+<pre>
+</pre>
+<textarea class="example">
+</textarea>
+
+
+-->
+
+<h2>Comment</h2>
+<pre>
+・インラインコメント
+・ブロックコメント
+</pre>
+<textarea class="example">// インラインコメント
+
+/*
+ブロックコメント
+*/</textarea>
+
+
+<h2>HTMLのScript要素に記述する書き方</h2>
+<pre>
+LAB.jsを使用したパターン。
+ただし、ノンブロッキング処理のためHTMLのレンダリングとJSによる表示でタイミングがずれるので、
+デフォルトでCSS非表示にしてJSで表示とか工夫する必要がある。
+</pre>
+<textarea class="example">$LAB.script("/js/lib/jquery.js").wait()
+.script(["/js/lib/meca.js", "/js/common.js"]).wait()
+.script("/js/コンテンツ名.js");</textarea>
+
+
+<h2>.jsの基本パターン</h2>
+<pre>
+即時関数にグローバルオブジェクトを渡すパターン。
+</pre>
+<textarea class="example">(function(global){
+// initialize...
+})(this);</textarea>
+
+
+
+<h2>ブラウザ判定パターン</h2>
+<pre>
+jQuery.browserを使う場合(jQuery1.3以降非推奨：<a href="http://api.jquery.com/jQuery.browser/">http://api.jquery.com/jQuery.browser/</a>)
+uupaa.jsを使う場合(<a href="http://code.google.com/p/uupaa-js/wiki/uu_env">http://code.google.com/p/uupaa-js/wiki/uu_env</a>)
+<span class="pending">自前でやる場合</span>
+</pre>
+<textarea class="example">//jQuery.browser
+jQuery.browser.webkit (as of jQuery 1.4)
+jQuery.browser.safari (deprecated)
+jQuery.browser.opera
+jQuery.browser.msie
+jQuery.browser.mozilla
+
+//uupaa.js
+uu.env.ie // Boolean: Internet Explorer で true になります。
+uu.env.ie6 // Boolean: Internet Explorer 6 で true になります。
+uu.env.ie7 // Boolean: Internet Explorer 7 で true になります。
+uu.env.ie8 // Boolean: Internet Explorer 8 で document.documentMode が 8 なら true になります。IE5,IE7互換表示モードでは false になります。
+uu.env.ie9 // Boolean: Internet Explorer 9 で document.documentMode が 9 なら true になります。IE5,IE7,IE8互換表示モードでは false になります。
+uu.env.ie678 // Boolean: Internet Explorer 6～8 true になります。
+uu.env.opera // Boolean: Opera, Opera Mini で true になります。
+uu.env.gecko // Boolean: Gecko ベースのブラウザ(Firefox等)で true になります。
+uu.env.webkit // Boolean: WebKit ベースのブラウザ(Safari, iPhone, iPad, iPod, Android, Google Chrome等)で true になります。
+uu.env.chrome // Boolean: Google Chrome で true になります。
+uu.env.safari // Boolean: Safari, iPhone, iPad, iPod, Android で true になります。
+uu.env.longedge // Number: 画面の長辺を数値で返します。1024 x 600 のデバイスでは 1024 を返します。
+uu.env.ipad // Boolean: iPad で true になります。
+uu.env.iphone // Boolean: iPhone / iPod で true になります。
+uu.env.ios // Boolean: iPad / iPhone / iPod で true になります。
+uu.env.retina // Boolean: Retina Display で true になります。iPhone 4 以上の判別にも利用できます。
+uu.env.android // Boolean: Android で true になります。
+uu.env.mbosver // Number: モバイルOSのバージョンを数値(major.minor)で返します。iOS 3.1.3 は mbosver = 3.13 になります。該当しないデバイスでは 0 を返します。
+uu.env.slate // Boolean: モバイルデバイスで石版状の大型端末なら true になります。iPad なら true になり、Androidで長辺が961ピクセル以上の場合も true になります。
+uu.env.mobile // Boolean: iOS, Android, Opera Mini で true になります。Windows Phone, Mobile Firefox(Fennec) では現在のところ false になります。
+uu.env.touch // Boolean: iOS, Android で true になります。
+//自前でやる場合</textarea>
+
+
+
+
+<h2>デバッグ・パターン</h2>
+<pre>consoleが無い環境を考慮しつつconsoleラップするパターン。jQuery依存</pre>
+<textarea class="example">$.browser.ipad = navigator.platform == 'iPad';
+
+if ($.browser.ipad) return;
+if (!window.console) window.console = {};
+var names = [
+	"log", "debug", "info", "warn", "error", "assert", "dir", "dirxml",
+	"group", "groupEnd", "time", "timeEnd", "count", "trace", "profile", "profileEnd"
+];
+for (var i = 0, n; n = names[i]; i++) {
+	if (typeof(window.console[n]) != 'function') {
+		window.console[n] = function() {};
+	}
+}
+
+if (!window.Namespace) Namespace = {};
+Namespace.env = location.host.indexOf('example.com') >= 0 ? 'prod' : 'dev';
+
+var debug = {
+    log: function(label) {
+        if (Namespace.env == 'prod') return;
+        var args = Array.prototype.slice.call(arguments, 1);
+        if (!/String/.test(Object.prototype.toString.call(label))) {
+            args.unshift(label);
+            label = 'Namespace DEBUG';
+        }
+        if ($.browser.ipad) {
+            console.log(label+ ': ' + args.join(','));
+        }
+        else {
+            args.unshift("[" + label + "]");
+            if ($.browser.msie) {
+                console.log(args);
+            }
+            else {
+                console.log.apply(console, args);
+            }
+        }
+    }
+};</textarea>
+
+
+<h2>meca.jsの設定</h2>
+<pre>@see <a href="http://webtech-walker.com/meca/">http://webtech-walker.com/meca/</a></pre>
+<textarea class="example">$(function () {
+    // ロールオーバー
+    $('.btn').meca('hover');
+    // 外部リンク
+    $('a.external').meca('external');
+    // pngfix
+    $('.pngfix').meca('pngfix');
+    // pngfix（背景画像）
+    $('.bgpng').meca('bgpngfix');
+    // 高さ揃え
+    $('.heightAlign').meca('heightAlign');
+    // IE6でposition fixed
+    $('.fixed').meca('positionFixed');
+    // スムーズスクロール
+    $('a[href^="#"]').meca('smoothScroll');
+    // OSのクラス追加
+    $('body').meca('addOsClass');
+    // IEで画像のlabel押せるようにする
+    $('label img').meca('labelClickable');
+    // active
+    $('.hasActive').meca('active');
+    //placeholder
+    $('input[placeholder], textarea[placeholder]').meca('placeholder');
+});</textarea>
+
+
+
+<h2>onload</h2>
+<pre>
+window.onloadつかう
+<span class="pending">windowのイベントつかう</span>
+jQueryつかう(@see <a href="http://api.jquery.com/ready/">http://api.jquery.com/ready/</a>)
+uupaa.jsつかう(@see <a href="http://code.google.com/p/uupaa-js/wiki/uu_ready">http://code.google.com/p/uupaa-js/wiki/uu_ready</a>)
+</pre>
+<textarea class="example">//window.onloadつかう
+window.onload = function () {
+	// initialize dom
+};
+
+//windowのイベントつかう
+
+//jQueryつかう
+// 複数呼べばハンドラは複数指定できます
+// その1
+$(document).ready(function(){
+	// initialize dom
+});
+// その2
+$().ready(function(){
+	// initialize dom
+});
+// その3
+$(function(){
+	// initialize dom
+});
+
+//uupaa.jsつかう
+//  イベントが発火済みか調べる
+uu.ready.dom
+uu.ready.window
+uu.ready.audio
+uu.ready.video
+uu.ready.canvas
+uu.ready.storage
+uu.ready.reload
+
+//  DOMReady
+uu.ready(function(uu) {
+	// initialize dom
+});
+
+// ハンドラは複数指定できます(DOMReady1 → DOMReady2 の順に発火)
+uu.ready(function(uu) {
+	//alert("DOMReady1");
+}, function(uu) {
+	//alert("DOMReady2");
+});</textarea>
+
+
+
+<h2>Routingパターン</h2>
+<pre>
+</pre>
+<textarea class="example">
+var dispatcher = global.dispatcher || (global.dispatcher = function dispatcher(path, func) {
+  dispatcher.path_func = dispatcher.path_func || []
+  if (func) return dispatcher.path_func.push([path, func]);
+  for(var i = 0, l = dispatcher.path_func.length; i &lt; l; ++i) {
+	var func = dispatcher.path_func[i];
+	var match = path.match(func[0]);
+	match &amp;&amp; func[1](match);
+  };
+});
+
+//dispatcher(location.pathname);</textarea>
+
+
+
+
+<h2>location解析パターン</h2>
+<pre><span class="pending">書いてない</span>
+</pre>
+<textarea class="example">
+</textarea>
+
+
+
+<h2>Array拡張パターン</h2>
+<pre><span class="pending">書いてない</span>
+</pre>
+<textarea class="example">
+</textarea>
+
+
+
+
+<h2>Number拡張パターン</h2>
+<pre><span class="pending">書いてない</span>
+</pre>
+<textarea class="example">
+</textarea>
+
+
+
+
+<h2>String拡張パターン</h2>
+<pre><span class="pending">書いてない</span>
+</pre>
+<textarea class="example">
+</textarea>
+
+
+</div>
+
+
+<!-- [ SCRIPTS ] -->
+<script type="text/javascipt" language="javascript">
+// Setting.
+
+// Load scripts.
+$LAB.script('/js/lib/jquery.1.6.1.js').wait()
+	.script(['/js/lib/meca.js'/*,'/js/lib/swfobject.js'*/,'/js/common.js']).wait()
+	.script('/js/main.js')
+	/*
+	.wait(function() {
+		
+	})
+	//*/
+	;// End of Script
+</script>
+<noscript><p id="msgNoscript">当サイトは、ブラウザのJavaScript設定を有効にしてご覧ください。</p></noscript>
+<!-- / [ SCRIPTS ] -->
+
+</body>
+</html>
