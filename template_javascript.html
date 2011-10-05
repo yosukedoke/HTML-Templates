@@ -80,6 +80,7 @@ hr{
 
 -->
 
+
 <h2>Comment</h2>
 <pre>
 ・インラインコメント
@@ -110,7 +111,6 @@ LAB.jsを使用したパターン。
 <textarea class="example">(function(global){
 // initialize...
 })(this);</textarea>
-
 
 
 <h2>ブラウザ判定パターン</h2>
@@ -150,6 +150,14 @@ uu.env.mobile // Boolean: iOS, Android, Opera Mini で true になります。Wi
 uu.env.touch // Boolean: iOS, Android で true になります。
 //自前でやる場合</textarea>
 
+
+
+<h2>デバッグモードチェック・パターン</h2>
+<pre>
+</pre>
+<textarea class="example">if (!global.Domain) Domain = {};
+Domain.env = location.host.indexOf('example.com') >= 0 ? 'prod' : 'dev';
+</textarea>
 
 
 
