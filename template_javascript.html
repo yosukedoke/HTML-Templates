@@ -66,6 +66,8 @@ hr{
 	content:"[要確認]";
 }
 </style>
+
+<script src="/js/lib/LAB.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="container">
@@ -155,8 +157,8 @@ uu.env.touch // Boolean: iOS, Android で true になります。
 <h2>デバッグモードチェック・パターン</h2>
 <pre>
 </pre>
-<textarea class="example">if (!global.Domain) Domain = {};
-Domain.env = location.host.indexOf('example.com') >= 0 ? 'prod' : 'dev';
+<textarea class="example">var DomainName = global.DomainName || (global.DomainName = {});
+DomainName.env = location.host.indexOf('example.com') >= 0 ? 'prod' : 'dev';
 </textarea>
 
 
