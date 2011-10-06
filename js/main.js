@@ -1,4 +1,7 @@
 ﻿(function(global){
+	var DomainName = global.DomainName || (global.DomainName = {});
+	var doc = global.document;
+	
 	/*
 	Class Defination.
 	*/
