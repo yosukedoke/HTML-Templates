@@ -65,9 +65,56 @@
 	//dispatcher(location.pathname);
 })(this);
 
-// Common initialization when dom ready
-$(function(){
-	$('#container').css({
-		'opacity':'1'
+// Setting routing functions.
+(function(global){
+	// Common initialization
+	dispatcher(".", function(){
+		$(function(){
+			/*
+			$('#container').css({
+				'opacity':'1'
+			});
+			*/
+			
+			/* Case of useing meca.js
+			// ロールオーバー
+			$('.btn').meca('hover');
+			// 外部リンク
+			$('a.external').meca('external');
+			// pngfix
+			$('.pngfix').meca('pngfix');
+			// pngfix（背景画像）
+			$('.bgpng').meca('bgpngfix');
+			// 高さ揃え
+			$('.heightAlign').meca('heightAlign');
+			// IE6でposition fixed
+			$('.fixed').meca('positionFixed');
+			// スムーズスクロール
+			$('a[href^="#"]').meca('smoothScroll');
+			// OSのクラス追加
+			$('body').meca('addOsClass');
+			// IEで画像のlabel押せるようにする
+			$('label img').meca('labelClickable');
+			// active
+			$('.hasActive').meca('active');
+			//placeholder
+			$('input[placeholder], textarea[placeholder]').meca('placeholder');
+			//*/
+		});
 	});
-});
+	/*
+	dispatcher("^/$", function(){
+		$LAB.script('/js/main.js');
+	});
+	dispatcher("^/hoge/$", function(){
+		$LAB.script('/js/hoge.js');
+	});
+	dispatcher("^/hoge/(.+)", function(match){
+	//	DomainName.data.id = match;
+		$LAB.script('/js/hoge.js');
+	});
+	*/
+	dispatcher(location.pathname);
+})(this);
+
+

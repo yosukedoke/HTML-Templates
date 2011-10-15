@@ -54,9 +54,20 @@
 <!-- / #container --></div>
 
 <!-- [ SCRIPTS ] -->
-<script type="text/javascript" src="/js/lib/jquery.1.6.1.js"></script>
-<script type="text/javascript" src="/js/lib/meca.js"></script>
-<script type="text/javascript" src="/js/main.js"></script>
+<script type="text/javascript">
+// Setting.
+
+// Load scripts.
+$LAB.script('/js/lib/jquery.1.6.1.js').wait()
+	.script(['/js/lib/meca.js'/*,'/js/lib/swfobject.js'*/]).wait()
+	.script('/js//common.js')
+	/*
+	.wait(function() {
+		
+	})
+	//*/
+	;// End of Script
+</script>
 <noscript><p id="msgNoscript">当サイトは、ブラウザのJavaScript設定を有効にしてご覧ください。</p></noscript>
 <!-- / [ SCRIPTS ] -->
 
