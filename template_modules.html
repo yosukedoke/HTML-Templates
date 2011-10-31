@@ -159,7 +159,6 @@ hr{
 </textarea>
 
 
-
 <h2>Media Query</h2>
 <pre>
 </pre>
@@ -169,14 +168,12 @@ hr{
 </textarea>
 
 
-
 <h2>Web Font</h2>
 <pre>
 </pre>
 <textarea class="example">
 <link href="http://fonts.googleapis.com/css?family=Molengo&text=VISONCMPANYSERELTWORKMU" rel="stylesheet" type="text/css" />
 </textarea>
-
 
 
 <h2>IE6 Alert</h2>
@@ -264,13 +261,70 @@ hr{
 <meta name="apple-mobile-web-app-status-bar-style" content="default"></textarea>
 
 
-<h2>Module_Name</h2>
+<h2>Simple SlideShow Pattern</h2>
 <pre>
+高さを確保したまま横のスライドを実現する
 </pre>
 <textarea class="example">
+//HTML
+&lt;div class="wrapper">
+&lt;div class="container">
+	&lt;div class="unit">&lt;/div>
+	&lt;div class="unit">&lt;/div>
+	&lt;div class="unit">&lt;/div>
+	&lt;div class="unit">&lt;/div>
+	&lt;div class="unit">&lt;/div>
+	&lt;div class="unit">&lt;/div>
+	&lt;div class="unit">&lt;/div>
+	&lt;div class="unit">&lt;/div>
+&lt;/div>
+&lt;/div>
+//CSS
+.wrapper{
+	overflow:hidden;
+}
+.container {
+	position:relative;
+	
+	word-wrap:normal;
+	word-break:normal;
+	width:10000px;// some big value;
+	
+	left:0px;
+	-webkit-transition-duration:1.0s;
+}
+.unit {
+	display:inline-block;
+	width:920px;
+}
+//JS
+var index = 0;
+function updatePage(){
+	$(".container").css({
+		left:(-index*920) +"px"
+	});
+}
 </textarea>
 
-</div>
+
+
+
+<h2>SWFObject Pattern</h2>
+<pre>
+<a href="http://mtl.recruit.co.jp/blog/2007/10/swfobject_v20.html">SWFObject v2.0 ドキュメント日本語訳(MTL)</a>
+</pre>
+<textarea class="example">
+var flashvars = {},
+	params = {
+		wmode:"transparent"
+	},
+	attributes = {
+		wmode:"transparent"
+	};
+swfobject.embedSWF("myContent.swf", "myContent", "300", "120", "9.0.0","expressInstall.swf", flashvars, params, attributes);
+</textarea>
+
+
 
 
 <!-- [ SCRIPTS ] -->
