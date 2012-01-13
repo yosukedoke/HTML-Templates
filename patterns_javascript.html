@@ -77,12 +77,26 @@ hr{
 </pre>
 <textarea class="example">
 </textarea>
-
-
 -->
 
+<div id="sub">
+	<ul>
+		<li><a href="#comment">Comment</h2>
+		<li><a href="#basicOnHTML">HTMLのScript要素に記述する書き方</a></li>
+		<li><a href="#basic">.jsの基本パターン</a></li>
+		<li><a href="#browser">ブラウザ判定パターン</a></li>
+		<li><a href="#debugModeCheck">デバッグモードチェック・パターン</a></li>
+		<li><a href="#debug">デバッグ・パターン</a></li>
+		<li><a href="#mecaJs">meca.jsの設定</a></li>
+		<li><a href="#onload">onload</a></li>
+		<li><a href="#routing">Routingパターン</a></li>
+		<li><a href="#swfobject">SWFObject Pattern</a></li>
+		<li><a href="#windowSize">window size パターン</a></li>
+	</ul>
+</div>
+<div id="main">
 
-<h2>Comment</h2>
+<h2 id="comment">Comment</h2>
 <pre>
 ・インラインコメント
 ・ブロックコメント
@@ -94,7 +108,7 @@ hr{
 */</textarea>
 
 
-<h2>HTMLのScript要素に記述する書き方</h2>
+<h2 id="basicOnHTML">HTMLのScript要素に記述する書き方</h2>
 <pre>
 LAB.jsを使用したパターン。
 ただし、ノンブロッキング処理のためHTMLのレンダリングとJSによる表示でタイミングがずれるので、
@@ -105,7 +119,7 @@ LAB.jsを使用したパターン。
 .script("/js/コンテンツ名.js");</textarea>
 
 
-<h2>.jsの基本パターン</h2>
+<h2 id="basic">.jsの基本パターン</h2>
 <pre>
 即時関数にグローバルオブジェクトを渡すパターン。
 </pre>
@@ -114,7 +128,7 @@ LAB.jsを使用したパターン。
 })(this);</textarea>
 
 
-<h2>ブラウザ判定パターン</h2>
+<h2 id="browser">ブラウザ判定パターン</h2>
 <pre>
 jQuery.browserを使う場合(jQuery1.3以降非推奨：<a href="http://api.jquery.com/jQuery.browser/">http://api.jquery.com/jQuery.browser/</a>)
 uupaa.jsを使う場合(<a href="http://code.google.com/p/uupaa-js/wiki/uu_env">http://code.google.com/p/uupaa-js/wiki/uu_env</a>)
@@ -153,7 +167,7 @@ uu.env.touch // Boolean: iOS, Android で true になります。
 
 
 
-<h2>デバッグモードチェック・パターン</h2>
+<h2 id="debugModeCheck">デバッグモードチェック・パターン</h2>
 <pre>
 </pre>
 <textarea class="example">var DomainName = global.DomainName || (global.DomainName = {});
@@ -162,7 +176,7 @@ DomainName.env = location.host.indexOf('example.com') >= 0 ? 'prod' : 'dev';
 
 
 
-<h2>デバッグ・パターン</h2>
+<h2 id="debug">デバッグ・パターン</h2>
 <pre>consoleが無い環境を考慮しつつconsoleラップするパターン。jQuery依存</pre>
 <textarea class="example">$.browser.ipad = navigator.platform == 'iPad';
 
@@ -205,7 +219,7 @@ var debug = {
 };</textarea>
 
 
-<h2>meca.jsの設定</h2>
+<h2 id="mecaJs">meca.jsの設定</h2>
 <pre>@see <a href="http://webtech-walker.com/meca/">http://webtech-walker.com/meca/</a></pre>
 <textarea class="example">$(function () {
     // ロールオーバー
@@ -233,8 +247,7 @@ var debug = {
 });</textarea>
 
 
-
-<h2>onload</h2>
+<h2 id="onload">onload</h2>
 <pre>
 window.onloadつかう
 <span class="pending">windowのイベントつかう</span>
@@ -286,8 +299,7 @@ uu.ready(function(uu) {
 });</textarea>
 
 
-
-<h2>Routingパターン</h2>
+<h2 id="routing">Routingパターン</h2>
 <pre>
 </pre>
 <textarea class="example">
@@ -305,9 +317,24 @@ var dispatcher = global.dispatcher || (global.dispatcher = function dispatcher(p
 
 
 
+<h2 id="swfobject">SWFObject Pattern</h2>
+<pre>
+<a href="http://mtl.recruit.co.jp/blog/2007/10/swfobject_v20.html">SWFObject v2.0 ドキュメント日本語訳(MTL)</a>
+</pre>
+<textarea class="example">
+var flashvars = {},
+	params = {
+		wmode:"transparent"
+	},
+	attributes = {
+		wmode:"transparent"
+	};
+swfobject.embedSWF("myContent.swf", "myContent", "300", "120", "9.0.0","expressInstall.swf", flashvars, params, attributes);
+</textarea>
 
 
-<h2>window size パターン</h2>
+
+<h2 id="windowSize">window size パターン</h2>
 <pre><span class="pending">書いてない</span>
 </pre>
 <textarea class="example">
